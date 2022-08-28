@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial,Tahoma,sans-serif;
+}
+.control-btn {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: rgba(1, 135, 225, 0.9);
+    z-index: 2;
+}
+.control-btn span {
+    position: absolute;
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 20px auto;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: 24px;
+    border: 2px solid #2196f3;
+}
+.blocks {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: space-between;
+}
+.blocks.no-clicking{ 
+    pointer-events: none;
+}
+.blocks .block {
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+}
+.blocks .block .front {
+    background-color: #333;
+    line-height: 200px;
+}
+.blocks .block .front::before {
+    content: "?";
+    color: #fff;
+    font-size: 150px;
+    font-weight: bold;
+}
+.blocks .block .back {
+    background-color: #607d8b;
+    transform: rotateY(180deg);
+}
+.blocks .block .back img {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+.blocks .block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+.blocks .block.is-flipped,
+.blocks .block.matched {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
